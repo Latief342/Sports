@@ -43,6 +43,8 @@ app
 ```
 ## 📸 Tampilan Aplikasi
 
+Struktur project dan hasil tampilan aplikasi dapat dilihat pada gambar berikut.
+
 <img width="356" height="787" alt="Screenshot 2026-04-17 172344" src="https://github.com/user-attachments/assets/23a4a32c-ee84-45df-b846-9305fcbcaec5" />
 
 ## 📄 Halaman Detail Atlet
