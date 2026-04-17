@@ -1,0 +1,41 @@
+# 🏅 SportsApp - Top 10 Highest-Paid Athletes
+
+Aplikasi Android sederhana yang menampilkan daftar 10 atlet dengan penghasilan tertinggi di dunia. Proyek ini dibuat sebagai sarana pembelajaran pengembangan aplikasi Android menggunakan **Kotlin**, **RecyclerView**, dan **Master-Detail Pattern**.
+
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=android-studio&logoColor=white)
+![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+## 🚀 Fitur Utama
+
+* **Daftar Atlet Teratas:** Menampilkan 10 atlet dengan penghasilan tertinggi dalam format list yang modern.
+* **Fitur Pencarian (Search):** Mencari atlet secara *real-time* berdasarkan nama.
+* **Halaman Detail:** Informasi mendalam tentang setiap atlet, termasuk deskripsi karier dan total penghasilan.
+* **Berbagi Informasi (Share):** Fitur untuk membagikan data atlet ke aplikasi lain (WhatsApp, Email, dll.).
+* **Gambar Optimal:** Menggunakan library **Glide** untuk pemuatan gambar yang ringan dan efisien.
+
+## 🛠️ Tech Stack & Library
+
+* **Language:** [Kotlin](https://kotlinlang.org/)
+* **UI Framework:** Android XML (View-based)
+* **Architecture:** Master-Detail Flow
+* **Library:**
+    * [Glide](https://github.com/bumptech/glide) - Untuk image loading & caching.
+    * RecyclerView - Untuk menampilkan daftar data yang efisien.
+    * CardView - Untuk desain list yang modern dan berbayang.
+    * Serializable - Untuk pengiriman data antar Activity.
+
+## 📂 Struktur Proyek
+
+```text
+app
+├── java/com.example.sports
+│   ├── Athlete.kt           # Model data (Serializable)
+│   ├── AthleteAdapter.kt    # Logic untuk RecyclerView & Search Filter
+│   ├── MainActivity.kt      # Halaman utama & logika Search
+│   └── DetailActivity.kt    # Halaman detail & fitur Share
+├── res/layout
+│   ├── activity_main.xml    # Layout utama dengan Search Bar
+│   ├── activity_detail.xml  # Layout detail atlet
+│   └── item_athlete.xml     # Layout custom untuk setiap baris atlet
+└── res/drawable             # Asset gambar atlet (resized)
