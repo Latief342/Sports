@@ -49,6 +49,8 @@ Struktur project dan hasil tampilan aplikasi dapat dilihat pada gambar berikut.
 
 ## 📄 Halaman Detail Atlet
 
+Berikut tampilan halaman detail atlet saat salah satu data dipilih.
+
 <img width="352" height="545" alt="Screenshot 2026-04-17 172358" src="https://github.com/user-attachments/assets/f27acf76-b624-429a-b2e6-207530e5aa47" />
 
 
