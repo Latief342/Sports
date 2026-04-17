@@ -91,6 +91,14 @@ Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin*
 
 ---
 
+## 👨‍💻 Anggota Kelompok
+
+1. Abdul Latief (L0324001)
+2. Anton Sulaiman (L0324004)
+3. Muhammad Hafizh Fadhilah (L0324021)
+   
+---
+
 ## ▶️ Link Youtube
 
 https://youtube.com/shorts/naf1wGCw7PM?feature=share
