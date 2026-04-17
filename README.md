@@ -1,4 +1,4 @@
-# 🏅 SportsApp - Top 10 Highest-Paid Athletes
+# 🏅 SportsApp
 
 Aplikasi Android sederhana yang menampilkan daftar 10 atlet dengan penghasilan tertinggi di dunia. Proyek ini dibuat sebagai sarana pembelajaran pengembangan aplikasi Android menggunakan **Kotlin**, **RecyclerView**, dan **Master-Detail Pattern**.
 
