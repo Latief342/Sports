@@ -39,3 +39,6 @@ app
 │   ├── activity_detail.xml  # Layout detail atlet
 │   └── item_athlete.xml     # Layout custom untuk setiap baris atlet
 └── res/drawable             # Asset gambar atlet (resized)
+
+```
+## 📸 Tampilan Aplikasi
