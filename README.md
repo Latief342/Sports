@@ -52,4 +52,25 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 <img width="352" height="545" alt="Screenshot 2026-04-17 172358" src="https://github.com/user-attachments/assets/f27acf76-b624-429a-b2e6-207530e5aa47" />
 
+## 🏗️ Teknologi & Struktur Aplikasi
 
+Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin** dan tampilan berbasis **XML**. Struktur project disusun secara rapi agar mudah dipahami, dikembangkan, dan dipelihara.
+
+### ⚡ Teknologi Utama
+- Kotlin  
+- Android XML Layout  
+- Android Studio  
+
+### 📂 Struktur File
+- `MainActivity.kt` → Halaman utama dan fitur pencarian atlet.  
+- `DetailActivity.kt` → Halaman detail atlet dan fitur share.  
+- `AthleteAdapter.kt` → Adapter untuk menampilkan data ke RecyclerView.  
+- `Athlete.kt` → Model data atlet.  
+- `activity_main.xml` → Layout halaman utama.  
+- `activity_detail.xml` → Layout halaman detail.  
+- `item_athlete.xml` → Layout item daftar atlet.  
+
+### 🛠️ Library yang Digunakan
+- **RecyclerView** → Menampilkan daftar data secara efisien.  
+- **Glide** → Menampilkan gambar dengan cepat.  
+- **CardView** → Membuat tampilan lebih modern dan rapi.
