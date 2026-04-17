@@ -88,7 +88,7 @@ Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin*
 - **RecyclerView** → Menampilkan daftar data secara efisien.  
 - **Glide** → Menampilkan gambar dengan cepat.  
 - **CardView** → Membuat tampilan lebih modern dan rapi.
-fokus crypto
+
 ---
 
 ## 👨‍💻 Anggota Kelompok
