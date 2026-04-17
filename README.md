@@ -92,3 +92,5 @@ Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin*
 ---
 
 ## ▶️ Link Youtube
+
+https://youtube.com/shorts/naf1wGCw7PM?feature=share
