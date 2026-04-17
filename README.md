@@ -15,6 +15,8 @@ Aplikasi Android sederhana yang menampilkan daftar 10 atlet dengan penghasilan t
 * **Berbagi Informasi (Share):** Fitur untuk membagikan data atlet ke aplikasi lain (WhatsApp, Email, dll.).
 * **Gambar Optimal:** Menggunakan library **Glide** untuk pemuatan gambar yang ringan dan efisien.
 
+---
+
 ## 🛠️ Tech Stack & Library
 
 * **Language:** [Kotlin](https://kotlinlang.org/)
@@ -25,6 +27,8 @@ Aplikasi Android sederhana yang menampilkan daftar 10 atlet dengan penghasilan t
     * RecyclerView - Untuk menampilkan daftar data yang efisien.
     * CardView - Untuk desain list yang modern dan berbayang.
     * Serializable - Untuk pengiriman data antar Activity.
+
+---
 
 ## 📂 Struktur Proyek
 
@@ -42,11 +46,15 @@ app
 └── res/drawable             # Asset gambar atlet (resized)
 
 ```
+---
+
 ## 📸 Tampilan Aplikasi
 
 Struktur project dan hasil tampilan aplikasi dapat dilihat pada gambar berikut.
 
 <img width="356" height="787" alt="Screenshot 2026-04-17 172344" src="https://github.com/user-attachments/assets/23a4a32c-ee84-45df-b846-9305fcbcaec5" />
+
+---
 
 ## 📄 Halaman Detail Atlet
 
@@ -54,9 +62,13 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 <img width="352" height="545" alt="Screenshot 2026-04-17 172358" src="https://github.com/user-attachments/assets/f27acf76-b624-429a-b2e6-207530e5aa47" />
 
+---
+
 ## 🏗️ Teknologi & Struktur Aplikasi
 
 Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin** dan tampilan berbasis **XML**. Struktur project disusun secara rapi agar mudah dipahami, dikembangkan, dan dipelihara.
+
+
 
 ### ⚡ Teknologi Utama
 - Kotlin  
@@ -76,3 +88,5 @@ Aplikasi **SportsApp** dibuat menggunakan Android Native dengan bahasa **Kotlin*
 - **RecyclerView** → Menampilkan daftar data secara efisien.  
 - **Glide** → Menampilkan gambar dengan cepat.  
 - **CardView** → Membuat tampilan lebih modern dan rapi.
+
+---
