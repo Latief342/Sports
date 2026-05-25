@@ -96,5 +96,5 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 ## ▶️ Link Youtube
 
-https://youtube.com/shorts/UDbAqlrNn3o?si=nIuJcsi1VaIZgtDi
-https://youtube.com/shorts/YMw8Nn3DUKw?feature=share (Praktikum 9)
+1. https://youtube.com/shorts/UDbAqlrNn3o?si=nIuJcsi1VaIZgtDi
+2. https://youtube.com/shorts/YMw8Nn3DUKw?feature=share (Praktikum 9)
