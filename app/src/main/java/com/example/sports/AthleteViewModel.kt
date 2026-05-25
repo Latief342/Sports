@@ -1,11 +1,19 @@
 package com.example.sports
 
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.first
 
-class AthleteViewModel : ViewModel() {
+class AthleteViewModel(private val dataStore: DataStore<Preferences>) : ViewModel() {
 
     private val allAthletes = listOf(
         Athlete("Cristiano Ronaldo", "Sepak Bola", "Rp 4.160 Miliar", "Megabintang Portugal yang kini bermain untuk Al Nassr. Ia menjadi atlet dengan bayaran tertinggi berkat kontrak fantastis di liga Arab Saudi dan sponsor besar.", R.drawable.ronaldo),
@@ -26,8 +34,31 @@ class AthleteViewModel : ViewModel() {
     private val _searchQuery = MutableStateFlow("")
     val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
 
+    private val searchQueryKey = stringPreferencesKey("search_query")
+
+    init {
+        viewModelScope.launch {
+            val savedQuery = dataStore.data
+                .map { preferences -> preferences[searchQueryKey] ?: "" }
+                .first()
+
+            _searchQuery.value = savedQuery
+            filterAthletes(savedQuery)
+        }
+    }
+
     fun searchAthletes(query: String) {
         _searchQuery.value = query
+        filterAthletes(query)
+
+        viewModelScope.launch {
+            dataStore.edit { preferences ->
+                preferences[searchQueryKey] = query
+            }
+        }
+    }
+
+    private fun filterAthletes(query: String) {
         if (query.isEmpty()) {
             _athletes.value = allAthletes
         } else {
