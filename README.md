@@ -80,7 +80,7 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 ---
 
-## 📌 [BARU] Pop-Up Bottom Sheet
+## 📌 Pop-Up Bottom Sheet
 
 <img width="355" height="178" alt="Screenshot 2026-05-01 175724" src="https://github.com/user-attachments/assets/b003000c-245d-48f8-86e3-ced6bbf7ad68" />
 
