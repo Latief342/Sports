@@ -9,27 +9,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.datastore.preferences.preferencesDataStore
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.sports.ui.screens.CatalogScreen
 import com.example.sports.ui.screens.DetailScreen
 import com.example.sports.ui.screens.HomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
 val Context.dataStore by preferencesDataStore(name = "sports_preferences")
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val athleteViewModel: AthleteViewModel by viewModels {
-        object : ViewModelProvider.Factory {
-            @Suppress("UNCHECKED_CAST")
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return AthleteViewModel(dataStore) as T
-            }
-        }
-    }
+    // ViewModel diinjeksi secara otomatis oleh Hilt
+    private val athleteViewModel: AthleteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

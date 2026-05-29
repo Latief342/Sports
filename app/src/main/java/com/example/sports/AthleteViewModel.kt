@@ -6,14 +6,19 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
+import javax.inject.Inject
 
-class AthleteViewModel(private val dataStore: DataStore<Preferences>) : ViewModel() {
+@HiltViewModel
+class AthleteViewModel @Inject constructor(
+    private val dataStore: DataStore<Preferences>
+) : ViewModel() {
 
     private val allAthletes = listOf(
         Athlete("Cristiano Ronaldo", "Sepak Bola", "Rp 4.160 Miliar", "Megabintang Portugal yang kini bermain untuk Al Nassr. Ia menjadi atlet dengan bayaran tertinggi berkat kontrak fantastis di liga Arab Saudi dan sponsor besar.", R.drawable.ronaldo),
