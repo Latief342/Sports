@@ -9,8 +9,9 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 ## 🚀 Fitur Utama
 
-* **[BARU] Penyimpanan Permanen dengan DataStore:** Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang. Teks yang dicari tidak akan hilang atau *reset* meskipun aplikasi ditutup paksa dan dibuka kembali.
-* **[BARU] Preview dengan Bottom Sheet:** Memunculkan ringkasan info atlet dari bawah layar (*Bottom Sheet Dialog*) saat data di-klik, sebelum masuk ke tampilan detail penuh.
+* **[BARU] Dependency Injection dengan Hilt:** Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
+* **Penyimpanan Permanen dengan DataStore:** Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang. Teks yang dicari tidak akan hilang atau *reset* meskipun aplikasi ditutup paksa dan dibuka kembali.
+* **Preview dengan Bottom Sheet:** Memunculkan ringkasan info atlet dari bawah layar (*Bottom Sheet Dialog*) saat data di-klik, sebelum masuk ke tampilan detail penuh.
 * **Halaman Beranda (Home Page):** Layar pembuka (*entry point*) yang elegan sebelum masuk ke dalam katalog utama.
 * **Daftar Atlet Teratas:** Menampilkan 10 atlet dengan penghasilan tertinggi dalam format list yang modern dan responsif.
 * **Fitur Pencarian (Search):** Mencari atlet secara *real-time* berdasarkan nama yang terintegrasi langsung dengan memori lokal.
@@ -23,13 +24,18 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native modern.
 
-* **Language:** [Kotlin](https://kotlinlang.org/)
+* **Language:** Kotlin
 * **UI Framework:** Jetpack Compose, Material 3 Design
-* **Architecture:** MVVM (Model-View-ViewModel) dengan pengenalan State Management
+* **Architecture:** MVVM (Model-View-ViewModel)
+* **Dependency Injection:** Dagger Hilt
+* **Annotation Processing:** Kotlin Symbol Processing (KSP)
+
 * **Dependencies/Library:**
-    * **Jetpack Preferences DataStore** - Untuk penyimpanan *key-value* secara asinkron (*local storage*).
-    * **Navigation Compose** - Untuk manajemen perpindahan halaman (*routing*) yang mulus.
-    * **StateFlow & Coroutines** - Untuk penanganan data reaktif dan proses di latar belakang (*background thread*).
+    * Jetpack Preferences DataStore
+    * Navigation Compose
+    * StateFlow & Coroutines
+    * Dagger Hilt
+    * Glide
 
 ---
 
@@ -37,18 +43,26 @@ Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native 
 
 Struktur *project* disusun berdasarkan pemisahan UI (*screens*) dan *Logic* agar mudah dipahami dan dipelihara:
 
+## 📂 Struktur Proyek
+
 ```text
 app
 ├── java/com.example.sports
-│   ├── Athlete.kt             # Blueprint / Model data statis
-│   ├── AthleteViewModel.kt    # [BARU] Logika utama pencarian & integrasi DataStore
-│   ├── MainActivity.kt        # Entry point aplikasi & konfigurasi NavHost
+│   ├── Athlete.kt
+│   ├── AthleteViewModel.kt
+│   ├── MainActivity.kt
+│   ├── SportsApplication.kt
+│   │
+│   ├── di
+│   │   └── DataStoreModule.kt
+│   │
 │   └── ui
 │       └── screens
-│           ├── HomeScreen.kt    # Layout halaman pembuka (Beranda)
-│           ├── CatalogScreen.kt # Layout daftar atlet, filter pencarian & Bottom Sheet
-│           └── DetailScreen.kt  # Layout detail penuh & fitur Share
-└── res/drawable               # Asset gambar atlet & aset visual lainnya
+│           ├── HomeScreen.kt
+│           ├── CatalogScreen.kt
+│           └── DetailScreen.kt
+│
+└── res/drawable
 
 ```
 ---
