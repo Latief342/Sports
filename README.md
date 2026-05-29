@@ -72,9 +72,6 @@ app
 ### Implementasi Dependency Injection (Hilt)
 Aplikasi kini menggunakan Dagger Hilt untuk mengelola dependensi secara otomatis sehingga tidak lagi memerlukan ViewModelFactory manual.
 
-### Migrasi dari KAPT ke KSP
-Proyek telah dimigrasikan ke Kotlin Symbol Processing (KSP) yang menawarkan performa build lebih cepat dan kompatibilitas yang lebih baik dengan Android Gradle Plugin terbaru.
-
 ### Integrasi DataStore Preferences
 Riwayat pencarian pengguna kini tersimpan secara permanen menggunakan Jetpack DataStore sehingga data tetap tersedia meskipun aplikasi ditutup.
 
