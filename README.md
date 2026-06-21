@@ -105,6 +105,7 @@ Alur navigasi aplikasi kini menjadi: Login → Register → Login → Catalog �
 ## 🔐 Login Page
 
 Berikut merupakan tampilan halaman Login aplikasi.
+
 <img width="346" height="567" alt="Screenshot 2026-06-21 174127" src="https://github.com/user-attachments/assets/53a6ed6e-58c7-4d89-8623-47f5a7f0c1b1" />
 
 ---
@@ -112,11 +113,17 @@ Berikut merupakan tampilan halaman Login aplikasi.
 ## 📝 Halaman Utama Aplikasi
 
 Berikut merupakan tampilan halaman Register aplikasi.
+
 <img width="337" height="613" alt="Screenshot 2026-06-21 174916" src="https://github.com/user-attachments/assets/13c97e0a-23ae-4824-8c78-8c79f2f383ea" />
 
 ---
 
-## Halaman Utama Aplikasi
+## 🏠 Halaman Utama Aplikasi
+
+Berikut merupakan tampilan Utama aplikasi.
+
+<img width="337" height="461" alt="Screenshot 2026-06-21 175813" src="https://github.com/user-attachments/assets/ba2a5ee4-c15e-4e3f-b14c-5ffad384f8cc" />
+
 ---
 
 ## 📄 Halaman Detail Atlet
@@ -124,7 +131,6 @@ Berikut merupakan tampilan halaman Register aplikasi.
 Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 <img width="344" height="770" alt="Screenshot 2026-04-24 180349" src="https://github.com/user-attachments/assets/e30b58b7-f2bc-4395-b124-3fdcec73e937" />
-
 
 ---
 
