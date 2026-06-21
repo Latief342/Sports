@@ -9,13 +9,19 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 ## 🚀 Fitur Utama
 
-* **[BARU] Penyimpanan Permanen dengan DataStore:** Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang. Teks yang dicari tidak akan hilang atau *reset* meskipun aplikasi ditutup paksa dan dibuka kembali.
-* **[BARU] Preview dengan Bottom Sheet:** Memunculkan ringkasan info atlet dari bawah layar (*Bottom Sheet Dialog*) saat data di-klik, sebelum masuk ke tampilan detail penuh.
-* **Halaman Beranda (Home Page):** Layar pembuka (*entry point*) yang elegan sebelum masuk ke dalam katalog utama.
-* **Daftar Atlet Teratas:** Menampilkan 10 atlet dengan penghasilan tertinggi dalam format list yang modern dan responsif.
-* **Fitur Pencarian (Search):** Mencari atlet secara *real-time* berdasarkan nama yang terintegrasi langsung dengan memori lokal.
-* **Halaman Detail:** Informasi mendalam tentang setiap atlet, termasuk cabang olahraga, deskripsi karier, dan total penghasilan.
-* **Berbagi Informasi (Share):** Fitur Global Intent untuk membagikan ringkasan data atlet ke aplikasi lain (WhatsApp, Email, dll.).
+* [BARU] HTTP Request dengan Retrofit: Mengambil data atlet secara langsung dari REST API menggunakan Retrofit dan Gson Converter.
+* [BARU] Integrasi MockAPI: Data atlet dan pengguna disimpan pada MockAPI sehingga aplikasi dapat melakukan komunikasi client-server secara online.
+* [BARU] Sistem Login: Pengguna dapat masuk ke aplikasi menggunakan akun yang tersimpan pada MockAPI.
+* [BARU] Sistem Register: Pengguna dapat membuat akun baru dan menyimpannya langsung ke MockAPI menggunakan HTTP POST Request.
+* [BARU] Halaman Profil: Menampilkan informasi pengguna yang sedang login, termasuk nama lengkap dan username.
+* [BARU] Logout: Pengguna dapat keluar dari aplikasi dan kembali ke halaman login dengan aman.
+* Dependency Injection dengan Hilt: Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
+* Penyimpanan Permanen dengan DataStore: Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang.
+* Preview dengan Bottom Sheet: Menampilkan ringkasan informasi atlet sebelum masuk ke halaman detail.
+* Daftar Atlet Teratas: Menampilkan data atlet dengan penghasilan tertinggi yang diperoleh dari REST API.
+* Fitur Pencarian (Search): Mencari atlet secara real-time berdasarkan nama.
+* Halaman Detail: Menampilkan informasi lengkap mengenai atlet yang dipilih.
+* Berbagi Informasi (Share): Membagikan informasi atlet ke aplikasi lain menggunakan Android Intent.
 
 ---
 
@@ -23,13 +29,24 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native modern.
 
-* **Language:** [Kotlin](https://kotlinlang.org/)
-* **UI Framework:** Jetpack Compose, Material 3 Design
-* **Architecture:** MVVM (Model-View-ViewModel) dengan pengenalan State Management
+* Language:** Kotlin
+* UI Framework:** Jetpack Compose, Material 3 Design
+* Architecture:** MVVM (Model-View-ViewModel)
+* Design System: Material 3
+* Dependency Injection:** Dagger Hilt
+* Annotation Processing:** Kotlin Symbol Processing (KSP)
+
 * **Dependencies/Library:**
-    * **Jetpack Preferences DataStore** - Untuk penyimpanan *key-value* secara asinkron (*local storage*).
-    * **Navigation Compose** - Untuk manajemen perpindahan halaman (*routing*) yang mulus.
-    * **StateFlow & Coroutines** - Untuk penanganan data reaktif dan proses di latar belakang (*background thread*).
+    * Gson Converter
+    * OkHttp Logging Interceptor
+    * Retrofit
+    * Jetpack Preferences DataStore
+    * Navigation Compose
+    * Kotlin Coroutines
+    * StateFlow & Coroutines
+    * Dagger Hilt
+    * Glide
+    * MockAPI
 
 ---
 
@@ -37,37 +54,75 @@ Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native 
 
 Struktur *project* disusun berdasarkan pemisahan UI (*screens*) dan *Logic* agar mudah dipahami dan dipelihara:
 
+## 📂 Struktur Proyek
+
 ```text
 app
 ├── java/com.example.sports
-│   ├── Athlete.kt             # Blueprint / Model data statis
-│   ├── AthleteViewModel.kt    # [BARU] Logika utama pencarian & integrasi DataStore
-│   ├── MainActivity.kt        # Entry point aplikasi & konfigurasi NavHost
+│   ├── Athlete.kt
+│   ├── AthleteViewModel.kt
+│   ├── MainActivity.kt
+│   ├── SportsApplication.kt
+│   │
+│   ├── di
+│   │   └── DataStoreModule.kt
+│   │
 │   └── ui
 │       └── screens
-│           ├── HomeScreen.kt    # Layout halaman pembuka (Beranda)
-│           ├── CatalogScreen.kt # Layout daftar atlet, filter pencarian & Bottom Sheet
-│           └── DetailScreen.kt  # Layout detail penuh & fitur Share
-└── res/drawable               # Asset gambar atlet & aset visual lainnya
+│           ├── HomeScreen.kt
+│           ├── CatalogScreen.kt
+│           └── DetailScreen.kt
+│
+└── res/drawable
 
 ```
+---
+
+## 🆕 Update Terbaru
+
+### Integrasi Retrofit & REST API 
+Aplikasi kini menggunakan Retrofit untuk melakukan HTTP Request dan mengambil data atlet secara langsung dari server MockAPI.
+
+### Implementasi MockAPI 
+Data atlet dan pengguna kini disimpan secara online menggunakan MockAPI sehingga aplikasi dapat melakukan operasi GET dan POST seperti aplikasi Android pada umumnya. 
+
+### Sistem Login dan Register
+Ditambahkan fitur autentikasi sederhana menggunakan endpoint users pada MockAPI. Pengguna dapat membuat akun baru dan login menggunakan data yang tersimpan pada server. ### Halaman Profil Pengguna
+
+### Halaman Profil
+Pengguna Setelah login, pengguna dapat melihat informasi akun yang sedang digunakan melalui halaman profil. 
+
+### Implementasi Logout 
+Ditambahkan fitur logout yang akan mengembalikan pengguna ke halaman login dan menghapus sesi pengguna aktif.
+
+### Penyempurnaan Navigation Compose 
+Alur navigasi aplikasi kini menjadi: Login → Register → Login → Catalog → Detail Atlet → Profil → Logout
+
 ---
 ## 📸 Tampilan Aplikasi
 ---
 
-## 🏠︎ Home Page
+## 🔐 Login Page
 
-Berikut merupakan tampilan halaman utama aplikasi.
+Berikut merupakan tampilan halaman Login aplikasi.
 
-<img width="349" height="785" alt="Screenshot 2026-04-24 180243" src="https://github.com/user-attachments/assets/8cef8482-00bd-4b19-b9c6-008da577ca00" />
+<img width="346" height="567" alt="Screenshot 2026-06-21 174127" src="https://github.com/user-attachments/assets/53a6ed6e-58c7-4d89-8623-47f5a7f0c1b1" />
 
 ---
 
-## 🗂️ Halaman Utama Aplikasi
+## 📝 Halaman Utama Aplikasi
 
-Struktur project dan hasil tampilan aplikasi dapat dilihat pada gambar berikut.
+Berikut merupakan tampilan halaman Register aplikasi.
 
-<img width="356" height="787" alt="Screenshot 2026-04-17 172344" src="https://github.com/user-attachments/assets/23a4a32c-ee84-45df-b846-9305fcbcaec5" />
+<img width="337" height="613" alt="Screenshot 2026-06-21 174916" src="https://github.com/user-attachments/assets/13c97e0a-23ae-4824-8c78-8c79f2f383ea" />
+
+---
+
+## 🏠 Halaman Utama Aplikasi
+
+Berikut merupakan tampilan Utama aplikasi.
+
+<img width="337" height="461" alt="Screenshot 2026-06-21 175813" src="https://github.com/user-attachments/assets/ba2a5ee4-c15e-4e3f-b14c-5ffad384f8cc" />
 
 ---
 
@@ -76,7 +131,6 @@ Struktur project dan hasil tampilan aplikasi dapat dilihat pada gambar berikut.
 Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 <img width="344" height="770" alt="Screenshot 2026-04-24 180349" src="https://github.com/user-attachments/assets/e30b58b7-f2bc-4395-b124-3fdcec73e937" />
-
 
 ---
 
@@ -97,4 +151,5 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 ## ▶️ Link Youtube
 
 1. https://youtube.com/shorts/UDbAqlrNn3o?si=nIuJcsi1VaIZgtDi (Praktikum 6)
-2. https://youtube.com/shorts/YMw8Nn3DUKw?feature=share (Praktikum 9)
+2. https://youtube.com/shorts/YMw8Nn3DUKw?feature=share (Praktikum 9 & Praktikum 10)
+3. (Praktikum 11)
