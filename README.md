@@ -152,3 +152,4 @@ Berikut tampilan halaman detail atlet saat salah satu data dipilih.
 
 1. https://youtube.com/shorts/UDbAqlrNn3o?si=nIuJcsi1VaIZgtDi (Praktikum 6)
 2. https://youtube.com/shorts/YMw8Nn3DUKw?feature=share (Praktikum 9 & Praktikum 10)
+3. (Praktikum 11)
