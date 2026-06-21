@@ -9,14 +9,19 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 ## 🚀 Fitur Utama
 
-* **[BARU] Dependency Injection dengan Hilt:** Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
-* **Penyimpanan Permanen dengan DataStore:** Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang. Teks yang dicari tidak akan hilang atau *reset* meskipun aplikasi ditutup paksa dan dibuka kembali.
-* **Preview dengan Bottom Sheet:** Memunculkan ringkasan info atlet dari bawah layar (*Bottom Sheet Dialog*) saat data di-klik, sebelum masuk ke tampilan detail penuh.
-* **Halaman Beranda (Home Page):** Layar pembuka (*entry point*) yang elegan sebelum masuk ke dalam katalog utama.
-* **Daftar Atlet Teratas:** Menampilkan 10 atlet dengan penghasilan tertinggi dalam format list yang modern dan responsif.
-* **Fitur Pencarian (Search):** Mencari atlet secara *real-time* berdasarkan nama yang terintegrasi langsung dengan memori lokal.
-* **Halaman Detail:** Informasi mendalam tentang setiap atlet, termasuk cabang olahraga, deskripsi karier, dan total penghasilan.
-* **Berbagi Informasi (Share):** Fitur Global Intent untuk membagikan ringkasan data atlet ke aplikasi lain (WhatsApp, Email, dll.).
+* **[BARU] HTTP Request dengan Retrofit: Mengambil data atlet secara langsung dari REST API menggunakan Retrofit dan Gson Converter.
+* **[BARU] Integrasi MockAPI: Data atlet dan pengguna disimpan pada MockAPI sehingga aplikasi dapat melakukan komunikasi client-server secara online.
+* **[BARU] Sistem Login: Pengguna dapat masuk ke aplikasi menggunakan akun yang tersimpan pada MockAPI.
+* **[BARU] Sistem Register: Pengguna dapat membuat akun baru dan menyimpannya langsung ke MockAPI menggunakan HTTP POST Request.
+* **[BARU] Halaman Profil: Menampilkan informasi pengguna yang sedang login, termasuk nama lengkap dan username.
+* **[BARU] Logout: Pengguna dapat keluar dari aplikasi dan kembali ke halaman login dengan aman.
+* **Dependency Injection dengan Hilt: Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
+* **Penyimpanan Permanen dengan DataStore: Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang.
+* **Preview dengan Bottom Sheet: Menampilkan ringkasan informasi atlet sebelum masuk ke halaman detail.
+* **Daftar Atlet Teratas: Menampilkan data atlet dengan penghasilan tertinggi yang diperoleh dari REST API.
+* **Fitur Pencarian (Search): Mencari atlet secara real-time berdasarkan nama.
+* **Halaman Detail: Menampilkan informasi lengkap mengenai atlet yang dipilih.
+* **Berbagi Informasi (Share): Membagikan informasi atlet ke aplikasi lain menggunakan Android Intent.
 
 ---
 
@@ -27,6 +32,7 @@ Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native 
 * **Language:** Kotlin
 * **UI Framework:** Jetpack Compose, Material 3 Design
 * **Architecture:** MVVM (Model-View-ViewModel)
+* **Design System: Material 3
 * **Dependency Injection:** Dagger Hilt
 * **Annotation Processing:** Kotlin Symbol Processing (KSP)
 
