@@ -9,19 +9,19 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 ## 🚀 Fitur Utama
 
-* **[BARU] HTTP Request dengan Retrofit: Mengambil data atlet secara langsung dari REST API menggunakan Retrofit dan Gson Converter.
-* **[BARU] Integrasi MockAPI: Data atlet dan pengguna disimpan pada MockAPI sehingga aplikasi dapat melakukan komunikasi client-server secara online.
-* **[BARU] Sistem Login: Pengguna dapat masuk ke aplikasi menggunakan akun yang tersimpan pada MockAPI.
-* **[BARU] Sistem Register: Pengguna dapat membuat akun baru dan menyimpannya langsung ke MockAPI menggunakan HTTP POST Request.
-* **[BARU] Halaman Profil: Menampilkan informasi pengguna yang sedang login, termasuk nama lengkap dan username.
-* **[BARU] Logout: Pengguna dapat keluar dari aplikasi dan kembali ke halaman login dengan aman.
-* **Dependency Injection dengan Hilt: Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
-* **Penyimpanan Permanen dengan DataStore: Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang.
-* **Preview dengan Bottom Sheet: Menampilkan ringkasan informasi atlet sebelum masuk ke halaman detail.
-* **Daftar Atlet Teratas: Menampilkan data atlet dengan penghasilan tertinggi yang diperoleh dari REST API.
-* **Fitur Pencarian (Search): Mencari atlet secara real-time berdasarkan nama.
-* **Halaman Detail: Menampilkan informasi lengkap mengenai atlet yang dipilih.
-* **Berbagi Informasi (Share): Membagikan informasi atlet ke aplikasi lain menggunakan Android Intent.
+* [BARU] HTTP Request dengan Retrofit: Mengambil data atlet secara langsung dari REST API menggunakan Retrofit dan Gson Converter.
+* [BARU] Integrasi MockAPI: Data atlet dan pengguna disimpan pada MockAPI sehingga aplikasi dapat melakukan komunikasi client-server secara online.
+* [BARU] Sistem Login: Pengguna dapat masuk ke aplikasi menggunakan akun yang tersimpan pada MockAPI.
+* [BARU] Sistem Register: Pengguna dapat membuat akun baru dan menyimpannya langsung ke MockAPI menggunakan HTTP POST Request.
+* [BARU] Halaman Profil: Menampilkan informasi pengguna yang sedang login, termasuk nama lengkap dan username.
+* [BARU] Logout: Pengguna dapat keluar dari aplikasi dan kembali ke halaman login dengan aman.
+* Dependency Injection dengan Hilt: Mengelola dependensi aplikasi secara otomatis menggunakan Dagger Hilt sehingga kode menjadi lebih modular, bersih, dan mudah dipelihara.
+* Penyimpanan Permanen dengan DataStore: Menyimpan riwayat kata kunci pencarian pengguna secara persisten di latar belakang.
+* Preview dengan Bottom Sheet: Menampilkan ringkasan informasi atlet sebelum masuk ke halaman detail.
+* Daftar Atlet Teratas: Menampilkan data atlet dengan penghasilan tertinggi yang diperoleh dari REST API.
+* Fitur Pencarian (Search): Mencari atlet secara real-time berdasarkan nama.
+* Halaman Detail: Menampilkan informasi lengkap mengenai atlet yang dipilih.
+* Berbagi Informasi (Share): Membagikan informasi atlet ke aplikasi lain menggunakan Android Intent.
 
 ---
 
@@ -29,19 +29,24 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 Aplikasi **SportsApp** dibangun menggunakan standar pengembangan Android Native modern.
 
-* **Language:** Kotlin
-* **UI Framework:** Jetpack Compose, Material 3 Design
-* **Architecture:** MVVM (Model-View-ViewModel)
-* **Design System: Material 3
-* **Dependency Injection:** Dagger Hilt
-* **Annotation Processing:** Kotlin Symbol Processing (KSP)
+* Language:** Kotlin
+* UI Framework:** Jetpack Compose, Material 3 Design
+* Architecture:** MVVM (Model-View-ViewModel)
+* Design System: Material 3
+* Dependency Injection:** Dagger Hilt
+* Annotation Processing:** Kotlin Symbol Processing (KSP)
 
 * **Dependencies/Library:**
+    * Gson Converter
+    * OkHttp Logging Interceptor
+    * Retrofit
     * Jetpack Preferences DataStore
     * Navigation Compose
+    * Kotlin Coroutines
     * StateFlow & Coroutines
     * Dagger Hilt
     * Glide
+    * MockAPI
 
 ---
 
@@ -75,14 +80,23 @@ app
 
 ## 🆕 Update Terbaru
 
-### Implementasi Dependency Injection (Hilt)
-Aplikasi kini menggunakan Dagger Hilt untuk mengelola dependensi secara otomatis sehingga tidak lagi memerlukan ViewModelFactory manual.
+### Integrasi Retrofit & REST API 
+Aplikasi kini menggunakan Retrofit untuk melakukan HTTP Request dan mengambil data atlet secara langsung dari server MockAPI.
 
-### Integrasi DataStore Preferences
-Riwayat pencarian pengguna kini tersimpan secara permanen menggunakan Jetpack DataStore sehingga data tetap tersedia meskipun aplikasi ditutup.
+### Implementasi MockAPI 
+Data atlet dan pengguna kini disimpan secara online menggunakan MockAPI sehingga aplikasi dapat melakukan operasi GET dan POST seperti aplikasi Android pada umumnya. 
 
-### SportsApplication & Hilt Initialization
-Ditambahkan kelas `SportsApplication` dengan anotasi `@HiltAndroidApp` sebagai titik awal inisialisasi Dependency Injection pada aplikasi.
+### Sistem Login dan Register
+Ditambahkan fitur autentikasi sederhana menggunakan endpoint users pada MockAPI. Pengguna dapat membuat akun baru dan login menggunakan data yang tersimpan pada server. ### Halaman Profil Pengguna
+
+### Halaman Profil
+Pengguna Setelah login, pengguna dapat melihat informasi akun yang sedang digunakan melalui halaman profil. 
+
+### Implementasi Logout 
+Ditambahkan fitur logout yang akan mengembalikan pengguna ke halaman login dan menghapus sesi pengguna aktif.
+
+### Penyempurnaan Navigation Compose 
+Alur navigasi aplikasi kini menjadi: Login → Register → Login → Catalog → Detail Atlet → Profil → Logout
 
 ---
 ## 📸 Tampilan Aplikasi
