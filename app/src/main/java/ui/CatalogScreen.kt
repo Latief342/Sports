@@ -8,7 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -28,12 +28,18 @@ import com.example.sports.AthleteViewModel
 @Composable
 fun CatalogScreen(
     viewModel: AthleteViewModel,
-    onAthleteClick: (Athlete) -> Unit
+    onAthleteClick: (Athlete) -> Unit,
+    onProfileClick: () -> Unit
 ) {
+
     val athletes by viewModel.athletes.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
+    val apiAthletes by viewModel.apiAthletes.collectAsState()
 
-    var selectedAthleteForSheet by remember { mutableStateOf<Athlete?>(null) }
+    var selectedAthleteForSheet by remember {
+        mutableStateOf<Athlete?>(null)
+    }
+
     val sheetState = rememberModalBottomSheetState()
 
     Column(
@@ -41,6 +47,7 @@ fun CatalogScreen(
             .fillMaxSize()
             .background(Color(0xFFFCFCFF))
     ) {
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -50,29 +57,51 @@ fun CatalogScreen(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
+
             Spacer(modifier = Modifier.width(24.dp))
+
             Text(
                 text = "Katalog Top Atlet",
                 color = Color(0xFF304163),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold
             )
-            Icon(
-                imageVector = Icons.Default.Build,
-                contentDescription = "Menu Configurations",
-                tint = Color(0xFF304163)
-            )
+
+            IconButton(
+                onClick = {
+                    onProfileClick()
+                }
+            ) {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = "Profile",
+                    tint = Color(0xFF304163)
+                )
+            }
         }
 
         OutlinedTextField(
             value = searchQuery,
-            onValueChange = { viewModel.searchAthletes(it) },
+            onValueChange = {
+                viewModel.searchAthletes(it)
+            },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
                 .height(50.dp),
-            placeholder = { Text("Cari atlet...", color = Color.Gray) },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search Icon", tint = Color.Gray) },
+            placeholder = {
+                Text(
+                    "Cari atlet...",
+                    color = Color.Gray
+                )
+            },
+            leadingIcon = {
+                Icon(
+                    Icons.Default.Search,
+                    contentDescription = "Search Icon",
+                    tint = Color.Gray
+                )
+            },
             shape = RoundedCornerShape(25.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color.White,
@@ -82,47 +111,125 @@ fun CatalogScreen(
             )
         )
 
+        if (apiAthletes.isNotEmpty()) {
+
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                colors = CardDefaults.cardColors(
+                    containerColor = Color(0xFFE8F5E9)
+                )
+            ) {
+
+                Column(
+                    modifier = Modifier.padding(12.dp)
+                ) {
+
+                    Text(
+                        text = "✓ API Retrofit Connected",
+                        fontWeight = FontWeight.Bold,
+                        color = Color(0xFF2E7D32)
+                    )
+
+                    Spacer(modifier = Modifier.height(4.dp))
+
+                    Text(
+                        text = "Data berhasil diambil dari REST API",
+                        fontSize = 13.sp,
+                        color = Color.DarkGray
+                    )
+
+                    Text(
+                        text = "Jumlah data API : ${apiAthletes.size}",
+                        fontSize = 13.sp,
+                        color = Color.DarkGray
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
         LazyColumn(
             contentPadding = PaddingValues(bottom = 16.dp)
         ) {
+
             items(athletes) { athlete ->
+
                 AthleteItem(
                     athlete = athlete,
-                    onClick = { selectedAthleteForSheet = athlete }
+                    onClick = {
+                        selectedAthleteForSheet = athlete
+                    }
                 )
             }
         }
     }
 
     if (selectedAthleteForSheet != null) {
+
         ModalBottomSheet(
-            onDismissRequest = { selectedAthleteForSheet = null },
+            onDismissRequest = {
+                selectedAthleteForSheet = null
+            },
             sheetState = sheetState,
             containerColor = Color.White
         ) {
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(24.dp)
             ) {
-                Text("Preview Atlet", fontSize = 14.sp, color = Color.Gray)
+
+                Text(
+                    text = "Preview Atlet",
+                    fontSize = 14.sp,
+                    color = Color.Gray
+                )
+
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(selectedAthleteForSheet!!.name, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+
+                Text(
+                    text = selectedAthleteForSheet!!.name,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold
+                )
+
                 Spacer(modifier = Modifier.height(4.dp))
-                Text("Cabang Olahraga: ${selectedAthleteForSheet!!.sport}", fontSize = 16.sp)
+
+                Text(
+                    text = "Cabang Olahraga: ${selectedAthleteForSheet!!.sport}",
+                    fontSize = 16.sp
+                )
+
                 Spacer(modifier = Modifier.height(24.dp))
+
                 Button(
                     onClick = {
-                        val athleteToPass = selectedAthleteForSheet
+
+                        val athleteToPass =
+                            selectedAthleteForSheet
+
                         selectedAthleteForSheet = null
+
                         if (athleteToPass != null) {
-                            onAthleteClick(athleteToPass)
+                            onAthleteClick(
+                                athleteToPass
+                            )
                         }
                     },
                     modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE0E0E0), contentColor = Color.Black)
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0xFFE0E0E0),
+                        contentColor = Color.Black
+                    )
                 ) {
-                    Text("LIHAT DETAIL LENGKAP")
+
+                    Text(
+                        text = "LIHAT DETAIL LENGKAP"
+                    )
                 }
             }
         }
@@ -130,39 +237,76 @@ fun CatalogScreen(
 }
 
 @Composable
-fun AthleteItem(athlete: Athlete, onClick: () -> Unit) {
+fun AthleteItem(
+    athlete: Athlete,
+    onClick: () -> Unit
+) {
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 6.dp)
-            .clickable { onClick() },
+            .padding(
+                horizontal = 16.dp,
+                vertical = 6.dp
+            )
+            .clickable {
+                onClick()
+            },
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFEAEAF4)),
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp)
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFFEAEAF4)
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 1.dp
+        )
     ) {
+
         Row(
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
+
             Image(
-                painter = painterResource(id = athlete.imageRes),
+                painter = painterResource(
+                    id = athlete.imageRes
+                ),
                 contentDescription = athlete.name,
                 modifier = Modifier
                     .size(65.dp)
-                    .clip(RoundedCornerShape(12.dp)),
+                    .clip(
+                        RoundedCornerShape(12.dp)
+                    ),
                 contentScale = ContentScale.Crop
             )
-            Spacer(modifier = Modifier.width(14.dp))
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = athlete.name, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = Color(0xFF333333))
-                Text(text = athlete.sport, fontSize = 13.sp, fontWeight = FontWeight.Bold, color = Color(0xFF3A5A98))
-                Text(text = athlete.earnings, fontSize = 12.sp, color = Color(0xFF666666))
-            }
-            Icon(
-                imageVector = Icons.Default.Build,
-                contentDescription = "Options Icon",
-                tint = Color.Gray
+
+            Spacer(
+                modifier = Modifier.width(14.dp)
             )
+
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+
+                Text(
+                    text = athlete.name,
+                    fontSize = 15.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF333333)
+                )
+
+                Text(
+                    text = athlete.sport,
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color(0xFF3A5A98)
+                )
+
+                Text(
+                    text = athlete.earnings,
+                    fontSize = 12.sp,
+                    color = Color(0xFF666666)
+                )
+            }
         }
     }
 }
