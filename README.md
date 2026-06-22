@@ -7,6 +7,18 @@ Aplikasi Android yang menampilkan daftar 10 atlet dengan penghasilan tertinggi d
 
 ---
 
+📖 Latar Belakang
+
+Perkembangan teknologi mobile telah mempermudah masyarakat dalam mengakses berbagai informasi secara cepat dan praktis. Namun, informasi mengenai atlet dari berbagai cabang olahraga sering kali tersebar di berbagai platform sehingga kurang efisien untuk dicari dan dipelajari. Oleh karena itu, diperlukan sebuah aplikasi yang dapat menyajikan informasi atlet secara terpusat, mudah diakses, dan interaktif melalui perangkat Android.
+
+---
+
+💡 Solusi
+
+Sports merupakan aplikasi Android yang dirancang untuk menyediakan informasi atlet dari berbagai cabang olahraga dalam satu platform. Aplikasi ini dilengkapi dengan fitur autentikasi pengguna, katalog atlet, pencarian atlet, preview data atlet, dan halaman detail atlet. Dengan memanfaatkan REST API dan teknologi Android modern seperti Jetpack Compose, Hilt, Retrofit, dan DataStore, aplikasi mampu memberikan pengalaman pengguna yang cepat, responsif, dan mudah digunakan.
+
+---
+
 ## 🚀 Fitur Utama
 
 * [BARU] HTTP Request dengan Retrofit: Mengambil data atlet secara langsung dari REST API menggunakan Retrofit dan Gson Converter.
