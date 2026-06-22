@@ -15,7 +15,27 @@ Perkembangan teknologi mobile telah mempermudah masyarakat dalam mengakses berba
 
 # 💡 Solusi
 
-Sports merupakan aplikasi Android yang dirancang untuk menyediakan informasi atlet dari berbagai cabang olahraga dalam satu platform. Aplikasi ini dilengkapi dengan fitur autentikasi pengguna, katalog atlet, pencarian atlet, preview data atlet, dan halaman detail atlet. Dengan memanfaatkan REST API dan teknologi Android modern seperti Jetpack Compose, Hilt, Retrofit, dan DataStore, aplikasi mampu memberikan pengalaman pengguna yang cepat, responsif, dan mudah digunakan.
+Aplikasi Sports dikembangkan untuk mengatasi permasalahan dalam akses informasi atlet dengan menyediakan berbagai fitur berikut:
+
+* Autentikasi Pengguna
+Memungkinkan pengguna membuat akun dan login untuk mengakses aplikasi secara aman.
+
+* Katalog Atlet
+Menyajikan daftar atlet dari berbagai cabang olahraga dalam satu platform yang terpusat.
+
+* Pencarian Atlet
+Memudahkan pengguna menemukan atlet yang diinginkan dengan cepat melalui fitur pencarian.
+
+* Preview Atlet (Bottom Sheet)
+Menampilkan ringkasan informasi atlet tanpa perlu membuka halaman detail.
+
+Detail Atlet
+Menyediakan informasi lengkap mengenai atlet yang dipilih, sehingga pengguna dapat memperoleh data yang lebih rinci.
+Penyimpanan Sesi Pengguna
+Menggunakan DataStore untuk menyimpan status login agar pengguna tidak perlu masuk kembali setiap kali membuka aplikasi.
+
+Teknologi Android Modern
+Memanfaatkan Jetpack Compose, Hilt, Retrofit, dan DataStore untuk menghasilkan aplikasi yang responsif, efisien, dan mudah dikembangkan.
 
 ---
 
