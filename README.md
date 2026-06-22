@@ -29,12 +29,13 @@ Memudahkan pengguna menemukan atlet yang diinginkan dengan cepat melalui fitur p
 * Preview Atlet (Bottom Sheet)
 Menampilkan ringkasan informasi atlet tanpa perlu membuka halaman detail.
 
-Detail Atlet
+* Detail Atlet
 Menyediakan informasi lengkap mengenai atlet yang dipilih, sehingga pengguna dapat memperoleh data yang lebih rinci.
-Penyimpanan Sesi Pengguna
+
+* Penyimpanan Sesi Pengguna
 Menggunakan DataStore untuk menyimpan status login agar pengguna tidak perlu masuk kembali setiap kali membuka aplikasi.
 
-Teknologi Android Modern
+* Teknologi Android Modern
 Memanfaatkan Jetpack Compose, Hilt, Retrofit, dan DataStore untuk menghasilkan aplikasi yang responsif, efisien, dan mudah dikembangkan.
 
 ---
