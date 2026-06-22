@@ -15,28 +15,15 @@ Perkembangan teknologi mobile telah mempermudah masyarakat dalam mengakses berba
 
 # 💡 Solusi
 
-Aplikasi Sports dikembangkan untuk mengatasi permasalahan dalam akses informasi atlet dengan menyediakan berbagai fitur berikut:
+Aplikasi Sports menyediakan solusi untuk memudahkan akses informasi atlet melalui:
 
-* Autentikasi Pengguna
-Memungkinkan pengguna membuat akun dan login untuk mengakses aplikasi secara aman.
+* Autentikasi Pengguna (Login & Registrasi)
+* Katalog Atlet yang menampilkan daftar atlet dari berbagai cabang olahraga
+* Pencarian Atlet untuk menemukan atlet dengan cepat
+* Detail Atlet yang menyajikan informasi lengkap atlet
+* Integrasi REST API untuk menampilkan data secara dinamis dan online
 
-* Katalog Atlet
-Menyajikan daftar atlet dari berbagai cabang olahraga dalam satu platform yang terpusat.
-
-* Pencarian Atlet
-Memudahkan pengguna menemukan atlet yang diinginkan dengan cepat melalui fitur pencarian.
-
-* Preview Atlet (Bottom Sheet)
-Menampilkan ringkasan informasi atlet tanpa perlu membuka halaman detail.
-
-* Detail Atlet
-Menyediakan informasi lengkap mengenai atlet yang dipilih, sehingga pengguna dapat memperoleh data yang lebih rinci.
-
-* Penyimpanan Sesi Pengguna
-Menggunakan DataStore untuk menyimpan status login agar pengguna tidak perlu masuk kembali setiap kali membuka aplikasi.
-
-* Teknologi Android Modern
-Memanfaatkan Jetpack Compose, Hilt, Retrofit, dan DataStore untuk menghasilkan aplikasi yang responsif, efisien, dan mudah dikembangkan.
+Dengan fitur-fitur tersebut, pengguna dapat memperoleh informasi atlet secara lebih cepat, mudah, dan terpusat melalui perangkat Android.
 
 ---
 
