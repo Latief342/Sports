@@ -120,7 +120,7 @@ Aplikasi kini menggunakan Retrofit untuk melakukan HTTP Request dan mengambil da
 Data atlet dan pengguna kini disimpan secara online menggunakan MockAPI sehingga aplikasi dapat melakukan operasi GET dan POST seperti aplikasi Android pada umumnya. 
 
 ### Sistem Login dan Register
-Ditambahkan fitur autentikasi sederhana menggunakan endpoint users pada MockAPI. Pengguna dapat membuat akun baru dan login menggunakan data yang tersimpan pada server. ### Halaman Profil Pengguna
+Ditambahkan fitur autentikasi sederhana menggunakan endpoint users pada MockAPI. Pengguna dapat membuat akun baru dan login menggunakan data yang tersimpan pada server.
 
 ### Halaman Profil
 Pengguna Setelah login, pengguna dapat melihat informasi akun yang sedang digunakan melalui halaman profil. 
